@@ -12,8 +12,8 @@ import javax.validation.Payload;
 @Target({ ElementType.TYPE, ElementType.ANNOTATION_TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Constraint(validatedBy = PasswordsEqualValidator.class)
-public @interface PasswordsEqual {
+@Constraint(validatedBy = EqualFieldsValidator.class)
+public @interface EqualFields {
 	
 	String message();
 
@@ -29,6 +29,6 @@ public @interface PasswordsEqual {
 	@Retention(RetentionPolicy.RUNTIME)
 	@Documented
 	@interface List {
-		PasswordsEqual[] value();
+		EqualFields[] value();
 	}
 }

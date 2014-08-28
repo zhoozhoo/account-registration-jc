@@ -6,11 +6,11 @@ import javax.validation.constraints.Pattern;
 
 import ca.zhoozhoo.ar.validation.BusinessLogicConstraints;
 import ca.zhoozhoo.ar.validation.FormatConstraints;
-import ca.zhoozhoo.ar.validation.PasswordsEqual;
+import ca.zhoozhoo.ar.validation.EqualFields;
 import ca.zhoozhoo.ar.validation.UniqueUsername;
 
 @GroupSequence({ UserAccountForm.class, FormatConstraints.class, BusinessLogicConstraints.class })
-@PasswordsEqual(first = "password", second = "confirmPassword", message = "Passwords do not match", groups = { BusinessLogicConstraints.class })
+@EqualFields(first = "password", second = "confirmPassword", message = "Passwords do not match", groups = { BusinessLogicConstraints.class })
 public class UserAccountForm {
 
 	@NotNull(message = "Please enter username", groups = FormatConstraints.class)
