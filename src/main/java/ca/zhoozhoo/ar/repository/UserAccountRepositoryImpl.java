@@ -1,6 +1,7 @@
 package ca.zhoozhoo.ar.repository;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +23,7 @@ public class UserAccountRepositoryImpl implements UserAccountRepository {
 	@Transactional
 	@Override
 	public UserAccount findByUsername(String username) {
-		return null;
+		return (UserAccount) sessionFactory.getCurrentSession().createCriteria(UserAccount.class)
+				.add(Restrictions.eq("username", username)).uniqueResult();
 	}
 }
