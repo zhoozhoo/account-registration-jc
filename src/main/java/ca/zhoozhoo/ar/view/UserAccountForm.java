@@ -6,13 +6,16 @@ import javax.validation.constraints.Pattern;
 
 import ca.zhoozhoo.ar.validation.BusinessLogicConstraints;
 import ca.zhoozhoo.ar.validation.FormatConstraints;
+import ca.zhoozhoo.ar.validation.PasswordsEqual;
+import ca.zhoozhoo.ar.validation.UniqueUsername;
 
 @GroupSequence({ UserAccountForm.class, FormatConstraints.class, BusinessLogicConstraints.class })
+@PasswordsEqual(first = "password", second = "confirmPassword", message = "Passwords do not match", groups = { BusinessLogicConstraints.class })
 public class UserAccountForm {
 
 	@NotNull(message = "Please enter username", groups = FormatConstraints.class)
 	@Pattern(regexp = "^[A-Za-z0-9]{5,}$", message = "Username must have a minimum length of 5 characters and contain only letters and numbers", groups = FormatConstraints.class)
-	@UniqueUsername(groups = BusinessLogicConstraints.class)
+	@UniqueUsername(message = "Username already exists", groups = BusinessLogicConstraints.class)
 	private String username;
 
 	@NotNull(message = "Please enter password", groups = FormatConstraints.class)

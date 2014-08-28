@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import ca.zhoozhoo.ar.model.UserAccount;
 import ca.zhoozhoo.ar.repository.UserAccountRepository;
 
 @Controller
@@ -28,6 +29,8 @@ public class ViewController {
 			return "userAccount";
 		}
 
+		userAccountRepository.save(new UserAccount(userAccountForm.getUsername(), userAccountForm.getPassword()));
+		
 		return "success";
 	}
 
