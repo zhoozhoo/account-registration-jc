@@ -30,7 +30,7 @@
 		<servlet-version>3.1.0</servlet-version>
 		<servlet.jsp-version>2.3.1</servlet.jsp-version>
 		<slf4j-version>1.7.7</slf4j-version>
-		<spring.framework-version>4.0.6.RELEASE</spring.framework-version>
+		<spring.framework-version>4.1.0.RELEASE</spring.framework-version>
 
 		<!-- plugin versions -->
 		<compiler.plugin-version>3.1</compiler.plugin-version>
