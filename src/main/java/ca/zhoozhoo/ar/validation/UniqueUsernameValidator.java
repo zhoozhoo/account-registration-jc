@@ -1,4 +1,4 @@
-package ca.zhoozhoo.ar.view;
+package ca.zhoozhoo.ar.validation;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -6,7 +6,6 @@ import javax.validation.ConstraintValidatorContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import ca.zhoozhoo.ar.repository.UserAccountRepository;
-import ca.zhoozhoo.ar.validation.UniqueUsername;
 
 public class UniqueUsernameValidator implements ConstraintValidator<UniqueUsername, String> {
 
