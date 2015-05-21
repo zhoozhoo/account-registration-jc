@@ -16,8 +16,12 @@
 	<servlet-mapping>
 		<servlet-name>account-registration</servlet-name>
 		<url-pattern>/</url-pattern>
+		<url-pattern>/home</url-pattern>
 	</servlet-mapping>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	<welcome-file-list>
+		<welcome-file>home</welcome-file>
+	</welcome-file-list>
 </web-app>

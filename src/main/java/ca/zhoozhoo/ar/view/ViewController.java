@@ -18,19 +18,20 @@ public class ViewController {
 	@Autowired
 	private UserAccountRepository userAccountRepository;
 
-	@RequestMapping(value = "/userAccount", method = RequestMethod.GET)
+	@RequestMapping(value = { "/userAccount", "/home" }, method = RequestMethod.GET)
 	public String products() {
 		return "userAccount";
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String review(@Valid @ModelAttribute("userAccountForm") UserAccountForm userAccountForm, BindingResult result) {
+	public String review(@Valid @ModelAttribute("userAccountForm") UserAccountForm userAccountForm,
+			BindingResult result) {
 		if (result.hasErrors()) {
 			return "userAccount";
 		}
 
 		userAccountRepository.save(new UserAccount(userAccountForm.getUsername(), userAccountForm.getPassword()));
-		
+
 		return "success";
 	}
 
