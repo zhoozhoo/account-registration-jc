@@ -34,6 +34,7 @@
 
 		<!-- plugin versions -->
 		<compiler.plugin-version>3.3</compiler.plugin-version>
+		<war.plugin-version>2.6</war.plugin-version>
 	</properties>
 
 	<dependencies>
@@ -138,6 +139,21 @@
 					<source>${java-version}</source>
 					<target>${java-version}</target>
 					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+
+			<!-- jar plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${war.plugin-version}</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+						</manifest>
+					</archive>
 				</configuration>
 			</plugin>
 		</plugins>
