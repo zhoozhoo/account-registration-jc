@@ -1,5 +1,5 @@
-Account Registration
-====================
+Account Registration - Java Configuration
+=========================================
 
 Requirements
 ------------
